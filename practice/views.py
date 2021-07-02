@@ -5,4 +5,4 @@ from django.shortcuts import render
 
 
 def practice(review) :
-    return render(review, 'base.html')
+    return render(review, 'practice/exercise.html')

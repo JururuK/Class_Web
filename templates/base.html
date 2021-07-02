@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% include 'head.html' %}
 <body>
+{% include 'header.html' %}   ## 가져오는 명령
+
+{% block content %}
+
+{% endblock %}
+
+
+{% include 'footer.html' %}
 <h1>This is an exercise </h1>
 </body>
 </html>
