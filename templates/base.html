@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'head.html' %}
+{% include 'head.html' %}<!-- 포함하기 -->
 <body>
-{% include 'header.html' %}   <!-- 포함하기 -->
+{% include 'header.html' %}
 
 {% block content %}
-
+<!--중간만 변하고 나머지는 그대로. 내부에 extends 해주는데가 있음 -->
 {% endblock %}
 
 
 {% include 'footer.html' %}
-<h1>This is an exercise </h1>
 </body>
 </html>
