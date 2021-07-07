@@ -1,0 +1,27 @@
+.exercise_header {
+    text-align: center; color: cornflowerblue;font-size : 5rem; font-family: 'Black And White Picture', sans-serif;
+}
+
+.exercise_header_logo {
+    margin : 2rem;
+    padding-top : 1rem ;
+    padding-bottom : 1rem;
+}
+
+.exercise_header_button {
+    margin : 2rem 0;
+    font-size : 2rem;
+    font-family: 'Cute Font', cursive;
+}
+
+.exercise_footer {
+    text-align: center;
+    color: cornflowerblue;
+    font-size :20px;
+    font-family: 'Black And White Picture', sans-serif;
+}
+
+.exercise_footer_logo  {
+    font-family: 'Cute Font', cursive;
+}
+
