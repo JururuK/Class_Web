@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}  <!--컨텐츠 부분만 원하는대로 불러옴-->
+<style>
+    .test {
+        background-color : deepskyblue;
+        margin : 2rem;
+        height : 36px;
+        width : 36px;
+        border-radius: .2rem;
+    }
 
-<div style="padding : 6rem ; text-align : right ; height : 30rem; background-color: darkgreen; margin: 2rem; border-radius: 1rem">
+</style>
+<div style="padding : 6rem  ; height : 30rem; background-color: darkgreen; margin: 2rem; border-radius: 1rem">
     <h1>This is the Practice</h1>
+    <div class = 'test' style = 'display : block'>block</div>
+    <div class = 'test' style = 'display : inline'>inline</div>
+    <div class = 'test' style = 'display : inline-block'>inline-block</div>
+    <div class = 'test' style = 'display : none'>none</div>
+
 </div>
+
 {% endblock %}
