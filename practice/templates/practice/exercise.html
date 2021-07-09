@@ -1,25 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}  <!--컨텐츠 부분만 원하는대로 불러옴-->
-<style>
-    .test {
-        background-color : deepskyblue;
-        margin : 2rem;
-        height : 36px;
-        width : 36px;
-        border-radius: .2rem;
-        overflow : hidden;
-    }
 
-</style>
-<div style="padding : 6rem  ; height : 30rem; background-color: #446c3e; margin: 2rem; border-radius: 1rem">
-    <h1>This is the Practice</h1>
-    <h2 style = 'font-size : 3rem;'>시력에 좋은 색이란다. Relax your eyes</h2>
-    <div class = 'test' style = 'display : block'>block</div>
-    <div class = 'test' style = 'display : inline'>inline</div>
-    <div class = 'test' style = 'display : inline-block'>inline-block</div>
-    <div class = 'test' style = 'display : none'>none</div>
+    <div style="text-align : right; padding : 6rem  ; height : 30rem; background-color: #446c3e; margin: 2rem; border-radius: 1rem">
+        <h1> HTTP METHOD</h1>
 
+        <form action="/practice/exercise/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-outline-success">
+        </form>
+    <h3> {{ text }}</h3>
+    <h4 style = 'font-size : 2rem;'>시력에 좋은 색이란다. Relax your eyes</h4>
 </div>
 
 {% endblock %}

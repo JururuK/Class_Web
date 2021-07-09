@@ -5,4 +5,9 @@ from django.shortcuts import render
 
 
 def practice(review) :
-    return render(review, 'practice/exercise.html')
+    if review.method == "POST" :
+        return render(review, 'practice/exercise.html',
+                      context = {'text':'POST METHOD'})
+    else :
+        return render(review, 'practice/exercise.html',
+                      context = {'text':'GET METHOD!'})
