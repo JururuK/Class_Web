@@ -4,14 +4,18 @@
 
     <div style="text-align : right; padding : 6rem  ; height : 30rem; background-color: #446c3e; margin: 2rem; border-radius: 1rem">
         <h1> HTTP METHOD</h1>
+        <h2>GET 에서 버튼을 누르면 POST 로</h2>
 
         <form action="/practice/exercise/" method="post">
             {% csrf_token %}
             <input type="text" name="input">
             <input type="submit" class="btn btn-outline-success">
         </form>
-    <h3> {{ model_instance.text }}</h3>
-    <h4 style = 'font-size : 2rem;'>시력에 좋은 색이란다. Relax your eyes</h4>
+
+        {% for data in data_list %}
+            <h3> {{ data.text }}</h3>
+        {% endfor %}
+    <h4 style = 'font-size : 1rem;'>시력에 좋은 색이란다. Relax your eyes</h4>
 </div>
 
 {% endblock %}
