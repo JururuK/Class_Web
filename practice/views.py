@@ -1,11 +1,13 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from practice.models import NewModel
-
 
 def practice(review) :
 
@@ -23,3 +25,9 @@ def practice(review) :
         data_list = NewModel.objects.all()
         return render(review, 'practice/exercise.html',
                       context={'data_list': data_list})
+
+class AccountNew(CreateView) :
+    model = User
+    form_class = UserCreationForm
+    success_url = reverse_lazy('practice:exercise')
+    template_name = 'practice/new.html'
