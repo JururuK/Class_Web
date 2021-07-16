@@ -3,9 +3,27 @@
         보노보노 color
     </div>
     <div class = "exercise_header_button">
-        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>메뉴1</span>
-        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>메뉴2</span>
-        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>메뉴3</span>
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>새소식</span>|
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>이벤트</span>|
+        {% if not user.is_authenticated %}
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
+            <a href="{% url 'practice:login' %}">
+                로그인
+            </a>
+        </span>|
+
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
+            <a href="{% url 'practice:new' %}">
+                회원가입
+            </a>
+        </span>
+        {% else %}
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
+            <a href="{% url 'practice:logout' %}">
+                로그아웃
+            </a>
+        </span>
+        {% endif %}
     </div>
 
 </div>
