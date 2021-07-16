@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
 
-    <div class="text-center">
+    <div class="text-center mw-450 m-auto">
         <div class = "m-5">
             <h3> Join Us :) </h3>
         </div>
         <div>
             <form action="{% url 'practice:new' %}" method = "post">
                 {% csrf_token %}
-                {{ form }}
+                {% bootstrap_form form %}
                 <div class = "m-5">
                     <input type="submit" class="btn btn-primary px-7" type="submit" value="Submit">
                 </div>

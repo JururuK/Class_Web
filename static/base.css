@@ -25,3 +25,11 @@
     font-family: 'Cute Font', cursive;
 }
 
+.mw-450 {
+    max-width : 450px;
+    padding : 1rem 1rem;
+}
+.mw-250 {
+    max-width : 250px;
+    padding : 1rem 1rem;
+}
