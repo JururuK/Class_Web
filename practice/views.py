@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from practice.models import NewModel
 
@@ -31,3 +31,8 @@ class AccountNew(CreateView) :
     form_class = UserCreationForm
     success_url = reverse_lazy('practice:exercise')
     template_name = 'practice/new.html'
+
+class AccountMyProfile(DetailView) :
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'practice/detail.html'
