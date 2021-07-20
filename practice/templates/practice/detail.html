@@ -11,9 +11,14 @@
         <div>
             {{ target_user.date_joined }}
         </div>
-        <div>
+        <div class = "m-2">
             <a href="{% url 'practice:modify' pk=target_user.pk %}">
                 정보수정
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'practice:delete' pk=target_user.pk %}">
+                회원탈퇴
             </a>
         </div>
     </div>
