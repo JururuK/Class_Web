@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from practice.forms import AccountModifyForm
 from practice.models import NewModel
 
 def practice(review) :
@@ -39,7 +40,7 @@ class AccountMyProfile(DetailView) :
 
 class AccountModify(UpdateView) :
     model = User
-    form_class = UserCreationForm
+    form_class = AccountModifyForm
     context_object_name = 'target_user'
     success_url = reverse_lazy('practice:exercise')
     template_name = 'practice/modify.html'
