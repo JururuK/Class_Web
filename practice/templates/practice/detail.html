@@ -11,8 +11,11 @@
         <div>
             {{ target_user.date_joined }}
         </div>
+        <div>
+            <a href="{% url 'practice:modify' pk=target_user.pk %}">
+                정보수정
+            </a>
+        </div>
     </div>
-
-
 
 {% endblock %}
