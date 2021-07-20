@@ -19,6 +19,11 @@
         </span>
         {% else %}
         <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
+            <a href="{% url 'practice:detail' pk=user.pk %}">
+                내정보
+            </a>
+        </span>|
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
             <a href="{% url 'practice:logout' %}">
                 로그아웃
             </a>
