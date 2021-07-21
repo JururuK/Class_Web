@@ -11,6 +11,7 @@
         <div>
             {{ target_user.date_joined }}
         </div>
+        {% if user == target_user %}
         <div class = "m-2">
             <a href="{% url 'practice:modify' pk=target_user.pk %}">
                 정보수정
@@ -21,6 +22,7 @@
                 회원탈퇴
             </a>
         </div>
+        {% endif %}
     </div>
 
 {% endblock %}
