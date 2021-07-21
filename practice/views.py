@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
@@ -5,11 +6,12 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from practice.forms import AccountModifyForm
 from practice.models import NewModel
-
+@login_required(login_url=reverse_lazy('practice:login'))
 def practice(review) :
     if review.user.is_authenticated:
 
@@ -42,6 +44,8 @@ class AccountMyProfile(DetailView) :
     context_object_name = 'target_user'
     template_name = 'practice/detail.html'
 
+@method_decorator(login_required,'get')
+@method_decorator(login_required,'post')
 class AccountModify(UpdateView) :
     model = User
     form_class = AccountModifyForm
@@ -49,32 +53,10 @@ class AccountModify(UpdateView) :
     success_url = reverse_lazy('practice:exercise')
     template_name = 'practice/modify.html'
 
-    def get(self,review,*args,**kwargs):
-        if review.user.is_authenticated and self.get_object() == review.user:
-            return super().get(review,*args,**kwargs)
-        else:
-            return HttpResponseForbidden()
-
-    def post(self,review,*args,**kwargs) :
-        if review.user.is_authenticated and self.get_object() == review.user:
-            return super().post(review,*args,**kwargs)
-        else:
-            return HttpResponseForbidden()
-
+@method_decorator(login_required,'get')
+@method_decorator(login_required,'post')
 class AccountDelete(DeleteView) :
     model = User
     context_object_name = 'target_user'
     success_url = reverse_lazy('practice:login')
     template_name = 'practice/delete.html'
-
-    def get(self,review,*args,**kwargs):
-        if review.user.is_authenticated and self.get_object() == review.user:
-            return super().get(review,*args,**kwargs)
-        else:
-            return HttpResponseForbidden()
-
-    def post(self,review,*args,**kwargs) :
-        if review.user.is_authenticated and self.get_object() == review.user:
-            return super().post(review,*args,**kwargs)
-        else:
-            return HttpResponseForbidden()
