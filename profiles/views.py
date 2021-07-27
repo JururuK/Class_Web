@@ -13,3 +13,7 @@ class ProfileCreateView(CreateView):
     form_class = ProfileCreationForm
     success_url = reverse_lazy('practice:exercise')
     template_name = 'profiles/new.html'
+
+    def form_valid(self,form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
