@@ -6,7 +6,16 @@
 
     <div class = "text-center mw-450 m-auto">
         <div class = "m-5"> <!-- 상하좌우 모두 5만큼-->
-            <h4>{{ target_user.username }}</h4>
+            {% if target_user.profiles %}
+                <h4>{{ target_user.nickname }}</h4>
+                <h4>{{ target_user.message}}</h4>
+            {% else %}
+            <h4>
+                <a href="{% url 'profile:new' %}">
+                    Create Profile
+                </a>
+            </h4>
+            {% endif %}
         </div>
         <div>
             {{ target_user.date_joined }}
