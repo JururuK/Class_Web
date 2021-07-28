@@ -6,9 +6,12 @@
 
     <div class = "text-center mw-450 m-auto">
         <div class = "m-5"> <!-- 상하좌우 모두 5만큼-->
-            {% if target_user.profiles %}
-                <h4>{{ target_user.nickname }}</h4>
-                <h4>{{ target_user.message}}</h4>
+            {% if target_user.profile %}
+                <img src="{{ target_user.profile.image.url }}"
+                     class = "profile_image m-3"
+                     alt="프로필 이미지">
+                <h3 class = "NNS_B">{{ target_user.profile.nickname }}</h3>
+                <h4>{{ target_user.profile.message}}</h4>
             {% else %}
             <h4>
                 <a href="{% url 'profile:new' %}">
