@@ -28,18 +28,16 @@
             </h4>
             {% endif %}
         </div>
-        <div>
-            {{ target_user.date_joined }}
-        </div>
+
         {% if user == target_user %}
         <div class = "m-2">
-            <a href="{% url 'practice:modify' pk=target_user.pk %}">
-                정보수정
+            <a href="{% url 'practice:modify' pk=target_user.pk %}"
+            class = 'material-icons round_button mx-1'>
+                settings
             </a>
-        </div>
-        <div>
-            <a href="{% url 'practice:delete' pk=target_user.pk %}">
-                회원탈퇴
+            <a href="{% url 'practice:delete' pk=target_user.pk %}"
+            class = 'material-icons round_button mx-1'>
+                close
             </a>
         </div>
         {% endif %}
