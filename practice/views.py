@@ -54,8 +54,10 @@ class AccountModify(UpdateView) :
     model = User
     form_class = AccountModifyForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('practice:exercise')
     template_name = 'practice/modify.html'
+
+    def get_success_url(self):
+        return reverse('practice:detail',kwargs={'pk':self.object.pk})
 
 id_owner = [login_required,is_id_owner]
 @method_decorator(id_owner,'get')
