@@ -44,3 +44,15 @@
 .NNS_B {
     font-family : "NanumSquareB",cursive;
 }
+
+.round_button {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 0 3px navy;
+    border-radius: 20rem;
+    padding: 0.5rem;
+}
+
+.round_button:hover {
+    color : dimgrey;
+}
