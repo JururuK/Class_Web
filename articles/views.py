@@ -18,7 +18,7 @@ class CreateArticleView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('article:detail',kwargs={'pk': self.object.pk})
+        return reverse('article:detail',kwargs={'pk':self.object.pk})
 
 class DetailArticleView(DetailView):
     model = Article
@@ -29,7 +29,9 @@ class ModifyArticleView(UpdateView):
     model = Article
     form_class = CreateArticleForm
     context_object_name = 'target_article'
-    template_name = 'articleapp/modify.html'
+    template_name = 'articles/modify.html'
 
     def get_success_url(self):
         return reverse('article:detail',kwargs={'pk':self.object.pk})
+
+class D
