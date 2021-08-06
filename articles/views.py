@@ -10,8 +10,8 @@ from articles.decorators import is_article_owner
 from articles.forms import CreateArticleForm
 from articles.models import Article
 
-@method_decorator(login_required,'get')
-@method_decorator(login_required,'post')
+@method_decorator(login_required(login_url=reverse_lazy('practice:login')),'get')
+@method_decorator(login_required(login_url=reverse_lazy('practice:login')),'post')
 class CreateArticleView(CreateView):
     model = Article
     form_class = CreateArticleForm
