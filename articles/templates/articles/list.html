@@ -36,5 +36,14 @@
 
     <script src="{% static 'js/magicgrid.js' %}"></script>
     {% include 'snippets/pagination.html' %}
-
+    <div class="text-center my-5">
+        <a href="{% url 'article:upload' %}"
+        class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'article:upload' %}"
+        class="btn btn-outline-dark rounded-pill px-5">
+            게시글작성
+        </a>
+    </div>
 {% endblock %}

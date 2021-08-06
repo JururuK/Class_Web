@@ -4,7 +4,9 @@
     </div>
     <div class = "exercise_header_button">
         <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>새소식</span>|
-        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>이벤트</span>|
+        <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
+            <a href="{% url 'article:list' %}"></a>게시글
+        </span>|
         {% if not user.is_authenticated %}
         <span style = 'margin : 3rem 0; padding-left : 1rem; padding-right : 1rem;'>
             <a href="{% url 'practice:login' %}">
