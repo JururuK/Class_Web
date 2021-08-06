@@ -56,3 +56,14 @@
 .round_button:hover {
     color : dimgrey;
 }
+
+.article_content {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.article_image {
+    border-radius: 2.5rem;
+    width: 60%
+    box-shadow: 0 0 .5rem darkgrey;
+}
