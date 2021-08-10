@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from commentapp.models import Comment
+from comments.models import Comment
 
 
 class CreateCommentForm(ModelForm):
