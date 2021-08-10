@@ -13,5 +13,7 @@ class CreateCommentView(CreateView):
     form_class = CreateCommentForm
     template_name = 'comments/new.html'
 
+
+
     def get_success_url(self):
         return reverse('article:detail', kwargs={'pk': self.object.article.pk})
