@@ -33,8 +33,24 @@
             {% endif %}
         </div>
         <hr>
-        <div>
+        <div class="text-center my-4">
             {# 댓글 내용 #}
+            {% for comment in target_article.comment.all %}
+                <div class="comment_box">
+                    <div>
+                        <span class="NNB_B"
+                              style="font-size: 1.2rem;">
+                            {{ comment.writer.profile.nickname }}
+                        </span>
+                        <span>{{ comment.created_at }}</span>
+                    </div>
+                    <div>
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
             {% include 'comments/new.html' %}
         </div>
     </div>

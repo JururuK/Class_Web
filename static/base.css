@@ -67,3 +67,12 @@
     width: 60%
     box-shadow: 0 0 .5rem darkgrey;
 }
+
+.comment_box {
+    text-align: left;
+    border: solid;
+    border-color: darkgrey;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+}

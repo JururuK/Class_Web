@@ -24,7 +24,7 @@ class CreateCommentView(CreateView):
 
     def get_success_url(self):
         return reverse('article:detail', kwargs={'pk': self.object.article.pk})
-    
+
 @method_decorator(is_comment_owner,'get')
 @method_decorator(is_comment_owner,'post')
 class DeleteCommentView(DeleteView):
