@@ -1,0 +1,23 @@
+{% extends 'base.html' %}]
+
+
+{% block content %}
+
+
+    <div class = "text-center mw-450 m-auto">
+        <div class = "m-5">
+
+                <img src="{{ target_letter.image.url }}"
+                     class = "profile_image m-3"
+                     alt="프로필 이미지">
+                <h3 class = "NNS_B">
+                    {{ target_letter.name }}
+                </h3>
+                <h4>{{ target_letter.description}}</h4>
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
