@@ -8,3 +8,6 @@ class Letter(models.Model):
     image = models.ImageField(upload_to='letter/',null=False)
 
     created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name}'

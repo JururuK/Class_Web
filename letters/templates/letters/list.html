@@ -4,14 +4,12 @@
 {% block content %}
 
     <style>
-        .containger {
+        .container {
             padding: 0;
             margin: 0 auto;
 
         }
         .container div {
-          width: 45%;
-            max-width: 250px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -21,8 +19,10 @@
         }
 
         .container img {
-            width: 100%;
-            border-radius: 2rem;
+            width: 10rem;
+            height: 10rem;
+            object-fit: cover;
+            border-radius: 1rem;
         }
 
     </style>
@@ -34,7 +34,7 @@
                 <a href="{% url 'letter:detail' pk=letter.pk %}">
                     <img src="{{ letter.image.url }}" alt="">
                 </a>
-                <span class="NNS_B my-2">{{ letter.name }}</span>
+                <span class="NNS_B my-2">{{ letter.name | truncatechars:10 }}</span>
             </div>
         {% endfor %}
     </div>
