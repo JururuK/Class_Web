@@ -8,7 +8,9 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
+from articles.models import Article
 from practice.decorators import is_id_owner
 from practice.forms import AccountModifyForm
 from practice.models import NewModel
@@ -41,11 +43,15 @@ class AccountNew(CreateView) :
     success_url = reverse_lazy('practice:exercise')
     template_name = 'practice/new.html'
 
-class AccountMyProfile(DetailView) :
+class AccountMyProfile(DetailView,MultipleObjectMixin) :
     model = User
     context_object_name = 'target_user'
     template_name = 'practice/detail.html'
+    paginate_by = 15
 
+    def get_context_data(self, **kwargs):
+        article_list=Article.objects.filter(writer=self.object)
+        return super().get_context_data(object_list=article_list,**kwargs)
 
 id_owner = [login_required,is_id_owner]
 @method_decorator(id_owner,'get')
