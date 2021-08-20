@@ -10,6 +10,8 @@ from django.views.generic.list import MultipleObjectMixin
 from articles.models import Article
 from letters.forms import CreateLetterForm
 from letters.models import Letter
+from subscribes.models import Subscription
+
 
 @method_decorator(login_required(login_url=reverse_lazy('practice:login')),'get')
 @method_decorator(login_required(login_url=reverse_lazy('practice:login')),'post')
@@ -26,9 +28,18 @@ class DetailLetterView(DetailView,MultipleObjectMixin):
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
-        article_list = Article.objects.filter(letter=self.object)
-        return super().get_context_data(object_list=article_list,**kwargs)
+        user = self.request.user
+        letter = self.object
 
+        if user.is_authenticated:
+            subscription = Subscription.objects.filter(user=user,
+                                                      letter=letter)
+        else:
+            subscription = None
+        article_list = Article.objects.filter(letter=self.object)
+        return super().get_context_data(object_list=article_list,
+                                        subscription=subscription,
+                                        **kwargs)
 class ListLetterView(ListView):
     model = Letter
     context_object_name = 'letter_list'
