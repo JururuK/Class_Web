@@ -21,6 +21,7 @@
     </div>
     <div class="text-center">
     {% if user.is_authenticated %}
+        {% if not subscription %}
         <a href="{% url 'subscribe:subscribe' letter_pk=target_letter.pk %}"
         class="btn btn-primary rounded-pill px-5">
             Subscribe

@@ -4,8 +4,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, ListView
 
+from articles.models import Article
 from letters.models import Letter
 from subscribes.models import Subscription
 
@@ -26,3 +27,15 @@ class SubscriptionView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         return reverse('letter:detail',kwargs={'pk':kwargs['letter_pk']})
+
+
+class SubscriptionListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'subscribes/list.html'
+
+    def get_queryset(self):
+        letter_list = Subscription.objects.filter(self.request.user).values_list('letter')
+        article_list = Article.objects.filter(project__in=letter_list)
+
+        return article_list
