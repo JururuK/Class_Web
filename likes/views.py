@@ -19,7 +19,7 @@ def db_transaction(user,article):
     like_record = LikeRecord.objects.filter(user=user,
                                             article=article)
     if like_record.exists():
-        raise ValidationError
+        raise ValidationError('like already exists')
 
     else:
         LikeRecord(user=user,article=article).save()
