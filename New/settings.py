@@ -62,6 +62,12 @@ INSTALLED_APPS = [
     'likes'
 ]
 
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.INFO: '',
+    50: 'critical',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
