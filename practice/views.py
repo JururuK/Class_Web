@@ -27,11 +27,11 @@ def practice(review) :
             model_instance.text = temp
             model_instance.save()
 
-            return HttpResponseRedirect(reverse('practice:exercise'))
+            return HttpResponseRedirect(reverse('article:lists'))
 
         else:
             data_list = NewModel.objects.all()
-            return render(review, 'practice/exercise.html',
+            return render(review, 'articles/list.html',
                           context={'data_list': data_list})
 
     else :

@@ -8,7 +8,6 @@ app_name = 'practice'
 
 
 urlpatterns = [
-    path('exercise/', practice, name='exercise'),
     path('login/', LoginView.as_view(template_name='practice/login.html'),
          name = 'login'),
     path('logout/', LogoutView.as_view(), name='logout'),
