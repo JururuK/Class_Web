@@ -18,7 +18,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from articles.views import ListArticleView
+
 urlpatterns = [
+    path('',ListArticleView.as_view(),name='main'),
     path('admin/', admin.site.urls), #관리자페이지
     path('practice/', include('practice.urls')),
     path('profiles/', include('profiles.urls')),
