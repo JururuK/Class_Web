@@ -2,6 +2,6 @@ version: "3.7"
 
 services:
   django:
-    image: gj_ai_django:1
+    image: jururuk:1
     ports:
       - 8080:8000
