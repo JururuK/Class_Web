@@ -20,6 +20,8 @@ services:
     volumes:
       - jururuk_static:/home/Class_Web/staticfiles/
       - jururuk_media:/home/Class_Web/media/
+    secrets:
+      - DJANGO_SECRET_KEY
 
   mariadb:
     image: mariadb:10.5
@@ -27,6 +29,11 @@ services:
       - jururuk_network
     volumes:
       - jururuk_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+
     environment:
       MARIADB_ROOT_PASSWORD: password1234
       MARIADB_DATABASE: jururuk_django
@@ -40,3 +47,13 @@ volumes:
   jururuk_static:
   jururuk_media:
   jururuk_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_USER:
+    external: true
+  MARIADB_USER_PASSWORD:
+    external: true
