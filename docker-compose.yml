@@ -35,10 +35,10 @@ services:
       - MARIADB_PASSWORD
 
     environment:
-      MARIADB_ROOT_PASSWORD: password1234
-      MARIADB_DATABASE: jururuk_django
-      MARIADB_USER: jururuk_django
-      MARIADB_PASSWORD: mypassword1234
+      MARIADB_DATABASE: gj_ai_django
+      MARIADB_USER_FILE: /run/secrets/MARIADB_USER
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
 
 networks:
   jururuk_network:
@@ -55,5 +55,5 @@ secrets:
     external: true
   MARIADB_USER:
     external: true
-  MARIADB_USER_PASSWORD:
+  MARIADB_PASSWORD:
     external: true
