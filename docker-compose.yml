@@ -14,7 +14,7 @@ services:
       - jururuk_media:/data/media/
 
   django:
-    image: jururuk:4
+    image: jururuk:5
     networks:
       - jururuk_network
     volumes:
