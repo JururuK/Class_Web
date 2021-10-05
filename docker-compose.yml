@@ -12,6 +12,7 @@ services:
       - /home/darma4545/nginx.conf:/etc/nginx/nginx.conf
       - jururuk_static:/data/static/
       - jururuk_media:/data/media/
+      - jururuk_log:/var/log/nginx/
 
   django:
     image: jururuk:5
@@ -48,6 +49,7 @@ volumes:
   jururuk_static:
   jururuk_media:
   jururuk_mariadb:
+  jururuk_log:
 
 secrets:
   DJANGO_SECRET_KEY:

@@ -31,4 +31,5 @@ urlpatterns = [
 
     path('subscribes/',include('subscribes.urls')),
     path('likes/',include('likes.urls')),
+    path('testapp/',include('testapp.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
