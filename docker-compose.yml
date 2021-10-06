@@ -5,7 +5,10 @@ services:
   nginx:
     image: nginx:1.19.5
     ports:
-      - 80:80
+      - mode: host
+        protocol: tcp
+        target: 80
+        published: 80
     networks:
       - jururuk_network
     volumes:
@@ -13,6 +16,14 @@ services:
       - jururuk_static:/data/static/
       - jururuk_media:/data/media/
       - jururuk_log:/var/log/nginx/
+
+  goaccess:
+    image: allinurl/goaccess:1.5.1
+    volumes:
+      - jururuk_log:/var/log/nginx/
+    ports:
+      - 7890:7890
+    command: /var/log/nginx/jururuk_access.log -o /var/log/nginx/report.html --log-format COMBINED --real-time-html
 
   django:
     image: jururuk:5
@@ -37,7 +48,7 @@ services:
       - MARIADB_PASSWORD
 
     environment:
-      MARIADB_DATABASE: gj_ai_django
+      MARIADB_DATABASE: jururuk_django
       MARIADB_USER_FILE: /run/secrets/MARIADB_USER
       MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
