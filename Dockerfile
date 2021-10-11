@@ -4,9 +4,9 @@ WORKDIR /home/
 
 RUN echo "s3aavvv"
 
-RUN git clone https://github.com/JururuK/Class_Web.git
+RUN git clone https://github.com/hale-in/bbqqweb
 
-WORKDIR /home/Class_Web/
+WORKDIR /home/bbqqweb/
 
 
 RUN pip install -r requirements.txt

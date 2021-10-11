@@ -16,6 +16,8 @@ services:
       - jururuk_static:/data/static/
       - jururuk_media:/data/media/
       - jururuk_log:/var/log/nginx/
+    secrets:
+      - NGINX_AUTH
 
   goaccess:
     image: allinurl/goaccess:1.5.1
@@ -70,4 +72,6 @@ secrets:
   MARIADB_USER:
     external: true
   MARIADB_PASSWORD:
+    external: true
+  NGINX_AUTH:
     external: true
